@@ -89,7 +89,7 @@ typedef unsigned long long llu_t;
 #include <sys/ioctl.h>
 #include <sys/un.h>
 
-#ifdef __APPLE__
+#if defined (__APPLE__) || defined (__FreeBSD__)
 #define HAVE_SUN_LEN_FIELD
 #include <sys/ucred.h>
 #endif
@@ -3030,7 +3030,7 @@ static ErlDrvSSizeT inet_fill_opts(inet_descriptor* desc,
 #ifdef LOCAL_PEERCRED
 	    struct xucred x;
 	    socklen_t xucredlen = sizeof(x);
-	    if (IS_SOCKET_ERROR(sock_getopt(desc->s,SOL_LOCAL,LOCAL_PEERCRED,
+	    if (IS_SOCKET_ERROR(sock_getopt(desc->s,SOL_SOCKET,LOCAL_PEERCRED,
 					    &x,&xucredlen)) ||
 		(x.cr_version != XUCRED_VERSION)) {
 		TRUNCATE_TO(0,ptr);
