@@ -88,6 +88,7 @@ typedef unsigned long long llu_t;
 
 #include <sys/ioctl.h>
 #include <sys/un.h>
+#include <sys/ucred.h>
 
 #if defined (__APPLE__) || defined (__FreeBSD__)
 #define HAVE_SUN_LEN_FIELD
@@ -3078,7 +3079,7 @@ static ErlDrvSSizeT inet_fill_opts(inet_descriptor* desc,
 #ifdef LOCAL_PEERPID 
 	    pid_t p;
 	    socklen_t plen = sizeof(p);
-	    if (IS_SOCKET_ERROR(sock_getopt(desc->s,SOL_LOCAL,LOCAL_PEERPID,
+	    if (IS_SOCKET_ERROR(sock_getopt(desc->s,SOL_SOCKET,LOCAL_PEERPID,
 					    &p,&plen))) {
 	        TRUNCATE_TO(0,ptr);
 		continue;

@@ -1,2 +1,3 @@
-all:
-	rebar compile
+PROJECT = afunix
+
+include erlang.mk
