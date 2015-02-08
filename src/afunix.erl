@@ -282,7 +282,7 @@ enc_time(Time) -> ?int32(Time).
 protocol2drv(tcp)  -> "tcp_inet";
 protocol2drv(udp)  -> "udp_inet";
 protocol2drv(sctp) -> "sctp_inet";
-protocol2drv(unix)  -> "afunix".
+protocol2drv(unix)  -> "afunix_drv".
 
 %% drv2protocol("tcp_inet")  -> tcp;
 %% drv2protocol("udp_inet")  -> udp;
