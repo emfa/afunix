@@ -1,6 +1,6 @@
 {application, afunix,
  [{description, "AF_UNIX socket driver"},
-  {vsn, git},
+  {vsn, "0.1.0"},
   {modules, [afunix]},
   {registered, []},
   {env, []},
